@@ -95,45 +95,51 @@ console.log(firstName);
 //     console.log("Why not 23");
 // }
 
-const day = 'Sunday';
+// const day = 'Sunday';
 
-switch (day) {
-    case 'Monday':
-        console.log("Work Day");
-        console.log("Work Day2");
-        break;
-    case 'Tuesday':
-        console.log("Work Day3");
-        break;
-    case 'Wednesday':
-    case 'Thursday':
-        console.log("Two days work!!!");
-        break;
-    case 'Friday':
-        console.log("Last Working day");
-        break;
-    case 'Saturday':
-    case 'Sunday':
-        console.log("Weekend wibe");
-        break;
-    default:
-        console.log("None of the above!!");
+// switch (day) {
+//     case 'Monday':
+//         console.log("Work Day");
+//         console.log("Work Day2");
+//         break;
+//     case 'Tuesday':
+//         console.log("Work Day3");
+//         break;
+//     case 'Wednesday':
+//     case 'Thursday':
+//         console.log("Two days work!!!");
+//         break;
+//     case 'Friday':
+//         console.log("Last Working day");
+//         break;
+//     case 'Saturday':
+//     case 'Sunday':
+//         console.log("Weekend wibe");
+//         break;
+//     default:
+//         console.log("None of the above!!");
 
-}
+// }
 
 // do the same stuff using if else
 
-if (day === 'Monday') {
-    console.log("Work Day");
-    console.log("Work Day2");
-} else if (day === "Tuesday") {
-    console.log("Work Day3");
-} else if (day === "Wednesday" || day === "Thursday") {
-    console.log("Two days work!!!");
-} else if (day === "Friday") {
-    console.log("Last Working day");
-} else if (day === "Saturday" || day === "Sunday") {
-    console.log("Weekend wibe");
-} else {
-    console.log("None of the above!!");
-}
+// if (day === 'Monday') {
+//     console.log("Work Day");
+//     console.log("Work Day2");
+// } else if (day === "Tuesday") {
+//     console.log("Work Day3");
+// } else if (day === "Wednesday" || day === "Thursday") {
+//     console.log("Two days work!!!");
+// } else if (day === "Friday") {
+//     console.log("Last Working day");
+// } else if (day === "Saturday" || day === "Sunday") {
+//     console.log("Weekend wibe");
+// } else {
+//     console.log("None of the above!!");
+// }
+
+
+
+const age = 17;
+
+age >= 18 ? console.log("Elgible to drink wine") : console.log("Not elgible");
