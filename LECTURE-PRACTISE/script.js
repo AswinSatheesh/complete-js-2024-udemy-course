@@ -69,12 +69,71 @@ console.log(firstName);
 // }
 
 
-const inputYear = '2001';
-const convertedYear = Number(inputYear);
-console.log(convertedYear + 23);
+// const inputYear = '2001';
+// const convertedYear = Number(inputYear);
+// console.log(convertedYear + 23);
 
-const val1 = '20';
-const val2 = '25';
-const upVal1 = String(val1);
-const upVal2 = String(val2);
-console.log(upVal1 + upVal2);
+// const val1 = '20';
+// const val2 = '25';
+// const upVal1 = String(val1);
+// const upVal2 = String(val2);
+// console.log(upVal1 + upVal2);
+
+
+// const age = 18;
+// if (age === 18) console.log("Level crossed!!");
+
+// const favNo = Number(prompt("Enter Your Favourite Number "));
+// console.log(typeof favNo);
+
+// if (favNo === 23) {
+//     console.log("Its a cool number");
+
+// }
+
+// if (favNo !== 23) {
+//     console.log("Why not 23");
+// }
+
+const day = 'Sunday';
+
+switch (day) {
+    case 'Monday':
+        console.log("Work Day");
+        console.log("Work Day2");
+        break;
+    case 'Tuesday':
+        console.log("Work Day3");
+        break;
+    case 'Wednesday':
+    case 'Thursday':
+        console.log("Two days work!!!");
+        break;
+    case 'Friday':
+        console.log("Last Working day");
+        break;
+    case 'Saturday':
+    case 'Sunday':
+        console.log("Weekend wibe");
+        break;
+    default:
+        console.log("None of the above!!");
+
+}
+
+// do the same stuff using if else
+
+if (day === 'Monday') {
+    console.log("Work Day");
+    console.log("Work Day2");
+} else if (day === "Tuesday") {
+    console.log("Work Day3");
+} else if (day === "Wednesday" || day === "Thursday") {
+    console.log("Two days work!!!");
+} else if (day === "Friday") {
+    console.log("Last Working day");
+} else if (day === "Saturday" || day === "Sunday") {
+    console.log("Weekend wibe");
+} else {
+    console.log("None of the above!!");
+}
