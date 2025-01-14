@@ -23,10 +23,20 @@
 // console.log(processor2);
 
 
-const age = function (birthYear) {
-    const currentAge = 2025 - birthYear;
-    return currentAge;
+// const age = function (birthYear) {
+//     const currentAge = 2025 - birthYear;
+//     return currentAge;
+// }
+
+// const myage = age(2001);
+// console.log(myage);
+
+// Anonymous function 
+
+const returedValue = function (val) {
+    const colorPick = 100 - val;
+    return colorPick;
 }
 
-const myage = age(2001);
-console.log(myage);
+const myval = returedValue(10);
+console.log(myval);
