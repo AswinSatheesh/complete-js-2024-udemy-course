@@ -157,5 +157,51 @@
 // console.log(totals);
 
 // efficent way using arrow function and ternary operator 
-const calcTip = value => value >= 50 && value <= 300 ? value * 0.5 : value * 0.2; //(arrow function means automatically returns value)
-console.log(calcTip(300));
+// const calcTip = value => value >= 50 && value <= 300 ? value * 0.5 : value * 0.2; //(arrow function means automatically returns value)
+// console.log(calcTip(300));
+
+// objects 
+
+const myBio = {
+    firstName: "Aswin",
+    secondName: "Satheesh",
+    age: 2025 - 2001,
+    friends: ["Ambu", "Achu", "Allu"],
+    job: "Developer"
+};
+
+// console.log(myBio);
+
+// console.log(myBio.age);
+// console.log(myBio['age']);
+
+// const nameKey = 'Name';
+// console.log(myBio['first' + nameKey]);
+
+// const resultFromUser = prompt(`What information you wanted to know about Aswin
+//         1.firstName
+//         2.secondName
+//         3.age
+//         4.friends
+//         5.job`)
+
+// console.log(resultFromUser);
+// console.log(myBio[resultFromUser]);
+
+// if (myBio[resultFromUser]) {
+//     console.log(myBio[resultFromUser]);
+// } else {
+//     console.log("Wrong Request, Choose from the above given options!!");
+
+// }
+
+
+myBio.hobby = 'FootBall';
+myBio['food'] = 'Biriyani';
+console.log(myBio);
+
+//challenges
+//"Jonas has 3 friends,and his best friend is called Michael"
+
+const result = `${myBio.firstName} has ${myBio.friends.length} friends, and his best friend is called ${myBio.friends[0]}`
+console.log(result);
