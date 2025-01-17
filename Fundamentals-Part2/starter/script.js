@@ -196,12 +196,53 @@ const myBio = {
 // }
 
 
-myBio.hobby = 'FootBall';
-myBio['food'] = 'Biriyani';
-console.log(myBio);
+// myBio.hobby = 'FootBall';
+// myBio['food'] = 'Biriyani';
+// console.log(myBio);
 
-//challenges
-//"Jonas has 3 friends,and his best friend is called Michael"
+// //challenges
+// //"Jonas has 3 friends,and his best friend is called Michael"
 
-const result = `${myBio.firstName} has ${myBio.friends.length} friends, and his best friend is called ${myBio.friends[0]}`
-console.log(result);
+// const result = `${myBio.firstName} has ${myBio.friends.length} friends, and his best friend is called ${myBio.friends[0]}`
+// console.log(result);
+
+// object methods
+
+
+const aswinDetails = {
+    firstName: "Aswin",
+    lastName: "Satheesh",
+    birthYear: 2001,
+    friends: ['Kannan', 'Achu', 'Ambu'],
+    hasLicense: false,
+    job: 'Developer',
+    // calcAge: function () {
+    //     return 2025 - this.birthYear;
+    // }
+
+    calcAge: function () {
+        this.age = 2025 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.age}-year old ${this.job}, and he has ${this.hasLicense ? 'a' : 'not'} drivers license`;
+    }
+}
+
+// console.log(aswinDetails['calcAge'](2001));
+// console.log(aswinDetails.calcAge());
+// console.log(aswinDetails.age);
+// console.log(aswinDetails.age);
+
+
+//challenge - getSummary
+// "Jonas is a 46-year old teacher, and he has
+// a driver's license"
+
+// "Aswin is a 24-year old Developer, and he has
+// a driver's license"
+
+console.log(aswinDetails.calcAge());
+console.log(aswinDetails.getSummary());
+
