@@ -209,26 +209,26 @@ const myBio = {
 // object methods
 
 
-const aswinDetails = {
-    firstName: "Aswin",
-    lastName: "Satheesh",
-    birthYear: 2001,
-    friends: ['Kannan', 'Achu', 'Ambu'],
-    hasLicense: false,
-    job: 'Developer',
-    // calcAge: function () {
-    //     return 2025 - this.birthYear;
-    // }
+// const aswinDetails = {
+//     firstName: "Aswin",
+//     lastName: "Satheesh",
+//     birthYear: 2001,
+//     friends: ['Kannan', 'Achu', 'Ambu'],
+//     hasLicense: false,
+//     job: 'Developer',
+//     // calcAge: function () {
+//     //     return 2025 - this.birthYear;
+//     // }
 
-    calcAge: function () {
-        this.age = 2025 - this.birthYear;
-        return this.age;
-    },
+//     calcAge: function () {
+//         this.age = 2025 - this.birthYear;
+//         return this.age;
+//     },
 
-    getSummary: function () {
-        return `${this.firstName} is a ${this.age}-year old ${this.job}, and he has ${this.hasLicense ? 'a' : 'not'} drivers license`;
-    }
-}
+//     getSummary: function () {
+//         return `${this.firstName} is a ${this.age}-year old ${this.job}, and he has ${this.hasLicense ? 'a' : 'not'} drivers license`;
+//     }
+// }
 
 // console.log(aswinDetails['calcAge'](2001));
 // console.log(aswinDetails.calcAge());
@@ -243,6 +243,34 @@ const aswinDetails = {
 // "Aswin is a 24-year old Developer, and he has
 // a driver's license"
 
-console.log(aswinDetails.calcAge());
-console.log(aswinDetails.getSummary());
+// console.log(aswinDetails.calcAge());
+// console.log(aswinDetails.getSummary());
 
+//challenge 
+
+/* Write your code below. Good luck! 🙂 */
+const mark = {
+    fullName: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        const bmi = (this.mass / (this.height * this.height));
+        return bmi;
+    }
+}
+
+const john = {
+    fullName: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        const bmi = (this.mass / (this.height * this.height));
+        return bmi;
+    }
+}
+
+if (john.calcBMI() > mark.calcBMI()) {
+    console.log(`${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${mark.fullName}'s (${mark.calcBMI()})`);
+} else {
+    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s (${john.calcBMI()})`);
+}
