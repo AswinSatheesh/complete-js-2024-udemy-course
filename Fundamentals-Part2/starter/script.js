@@ -246,31 +246,60 @@ const myBio = {
 // console.log(aswinDetails.calcAge());
 // console.log(aswinDetails.getSummary());
 
-//challenge 
+//challenge
 
 /* Write your code below. Good luck! 🙂 */
-const mark = {
-    fullName: 'Mark Miller',
-    mass: 78,
-    height: 1.69,
-    calcBMI: function () {
-        const bmi = (this.mass / (this.height * this.height));
-        return bmi;
-    }
+// const mark = {
+//     fullName: 'Mark Miller',
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         const bmi = (this.mass / (this.height * this.height));
+//         return bmi;
+//     }
+// }
+
+// const john = {
+//     fullName: 'John Smith',
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function () {
+//         const bmi = (this.mass / (this.height * this.height));
+//         return bmi;
+//     }
+// }
+
+// if (john.calcBMI() > mark.calcBMI()) {
+//     console.log(`${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${mark.fullName}'s (${mark.calcBMI()})`);
+// } else {
+//     console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s (${john.calcBMI()})`);
+// }
+
+
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Gym repetition set ${rep}`);
+// }
+
+// const myArray = ["Aswin", "Developer", 23, ['ambu', 'achu', 'kannan'], true];
+// // console.log(myArray);
+// const typesArray = [];
+// for (let i = 0; i <= myArray.length - 1; i++) {
+//     console.log(myArray[i], typeof myArray[i]);
+//     // typesArray[i] = typeof myArray[i]; //Method 1
+//     typesArray.push(typeof myArray[i]); //method 2
+//     // typesArray.unshift(typeof myArray[i]); //reverse order
+// }
+
+// console.log(typesArray);
+
+
+const years = [2001, 1990, 2007];
+const age = [];
+
+for (let i = 0; i < years.length; i++) {
+    // if (years[i] != 1990) continue;
+    // if (years[i] === 2007) break;
+    age.push(2025 - years[i]);
 }
 
-const john = {
-    fullName: 'John Smith',
-    mass: 92,
-    height: 1.95,
-    calcBMI: function () {
-        const bmi = (this.mass / (this.height * this.height));
-        return bmi;
-    }
-}
-
-if (john.calcBMI() > mark.calcBMI()) {
-    console.log(`${john.fullName}'s BMI (${john.calcBMI()}) is higher than ${mark.fullName}'s (${mark.calcBMI()})`);
-} else {
-    console.log(`${mark.fullName}'s BMI (${mark.calcBMI()}) is higher than ${john.fullName}'s (${john.calcBMI()})`);
-}
+console.log(age);
