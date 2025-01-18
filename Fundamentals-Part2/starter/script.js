@@ -162,13 +162,13 @@
 
 // objects 
 
-const myBio = {
-    firstName: "Aswin",
-    secondName: "Satheesh",
-    age: 2025 - 2001,
-    friends: ["Ambu", "Achu", "Allu"],
-    job: "Developer"
-};
+// const myBio = {
+//     firstName: "Aswin",
+//     secondName: "Satheesh",
+//     age: 2025 - 2001,
+//     friends: ["Ambu", "Achu", "Allu"],
+//     job: "Developer"
+// };
 
 // console.log(myBio);
 
@@ -293,13 +293,77 @@ const myBio = {
 // console.log(typesArray);
 
 
-const years = [2001, 1990, 2007];
-const age = [];
+// const years = [2001, 1990, 2007];
+// const age = [];
 
-for (let i = 0; i < years.length; i++) {
-    // if (years[i] != 1990) continue;
-    // if (years[i] === 2007) break;
-    age.push(2025 - years[i]);
+// for (let i = 0; i < years.length; i++) {
+//     // if (years[i] != 1990) continue;
+//     // if (years[i] === 2007) break;
+//     age.push(2025 - years[i]);
+// }
+
+// console.log(age);
+
+
+// const myArray = ["Aswin", "Developer", 23, ['ambu', 'achu', 'kannan']];
+
+// console.log(myArray);
+
+// const reversArrya = [];
+// for (let i = myArray.length - 1; i >= 0; i--) {
+//     console.log(myArray[i]);
+//     // reversArrya[]
+// }
+
+// for (let i = 0; i < 3; i++) {
+//     console.log(`Starting Excercise ${i} 💪`);
+//     for (let rep = 1; rep <= 3; rep++) {
+//         console.log(`Repetitive Task ${rep}`);
+//     }
+// }
+
+// let dice = Math.trunc(Math.random() * 6 + 1);
+// // console.log(dice);
+
+// while (dice !== 6) {
+//     console.log(`You rolled ${dice}`);
+//     dice = Math.trunc(Math.random() * 6 + 1);
+
+//     if (dice === 6) {
+//         console.log('Loop is about to end!!');
+//     }
+// }
+
+// new challenge 
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+/* Write your code below. Good luck! 🙂 */
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 110, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i <= bills.length - 1; i++) {
+    // tips[i] = calcTip(bills[i]);
+    // totals[i] = bills[i] + tips[i];
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
 }
 
-console.log(age);
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i <= arr.length - 1; i++) {
+        sum = sum + arr[i];
+    }
+    const avg = sum / arr.length;
+    return avg;
+}
+
+console.log(calcAverage(totals));
