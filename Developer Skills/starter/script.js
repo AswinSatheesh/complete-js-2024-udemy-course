@@ -77,4 +77,4 @@ const printForecast = function (arr) {
   }
 };
 
-printForecast([17, 21, 23]);
+printForecast([17, 21, 23]); //now each line output coming need to print it in a single line
