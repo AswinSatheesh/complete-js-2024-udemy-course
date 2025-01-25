@@ -88,62 +88,108 @@
 
 //challenge 2
 
-// you are building a time tracking app. you need a function that receives daily work hours for a certain WebSocket, and returns
-// 1. Total hours worked
-// 2. Average daily hours
-// 3. The day with the most hours worked
-// 4. Number of days worked
-// 5. whether the week was full-time(worked 35 hours or more)
+// // you are building a time tracking app. you need a function that receives daily work hours for a certain WebSocket, and returns
+// // 1. Total hours worked
+// // 2. Average daily hours
+// // 3. The day with the most hours worked
+// // 4. Number of days worked
+// // 5. whether the week was full-time(worked 35 hours or more)
 
-// Test data : [7.5,8,6.5,0,8.5,4,0]
+// // Test data : [7.5,8,6.5,0,8.5,4,0]
 
-const totlhrs = function (weeklyhrs) {
-  let totalhours = 0;
-  for (let i = 0; i < weeklyhrs.length; i++) {
-    totalhours += weeklyhrs[i];
+// const totlhrs = function (weeklyhrs) {
+//   let totalhours = 0;
+//   for (let i = 0; i < weeklyhrs.length; i++) {
+//     totalhours += weeklyhrs[i];
+//   }
+//   return totalhours;
+// };
+
+// //day with most hrs worked
+// const mostWorkedDay = function (weeklyhrs) {
+//   let mosthrsday = weeklyhrs[0];
+//   for (let i = 0; i < weeklyhrs.length; i++) {
+//     if (mosthrsday < weeklyhrs[i]) {
+//       mosthrsday = weeklyhrs[i];
+//     }
+//   }
+//   return mosthrsday;
+// };
+
+// // Number of days worked
+// const numberOfDaysWorked = function (weeklyhrs) {
+//   let count = 0;
+//   for (let i = 0; i < weeklyhrs.length; i++) {
+//     if (weeklyhrs[i] > 0) {
+//       count++;
+//     }
+//   }
+//   return count;
+// };
+
+// //Week was full-time (35>=)
+// let fullTime = function (weekworkedhrs) {
+//   const Totalhours = totlhrs(weekworkedhrs);
+//   return Totalhours >= 35
+//     ? 'Week was Full Time'
+//     : 'This week Not Reached 35hrs (FUll Time)';
+// };
+
+// const weeklyhrs = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+
+// console.log(`Total hours worked : ${totlhrs(weeklyhrs)}`);
+// console.log(
+//   `Average daily hours : ${Math.round(totlhrs(weeklyhrs) / weeklyhrs.length)}`
+// );
+
+// console.log(`Day with most hrs worked : ${mostWorkedDay(weeklyhrs)}`);
+
+// console.log(`Number of days worked : ${numberOfDaysWorked(weeklyhrs)}`);
+
+// console.log(fullTime(weeklyhrs));
+
+// //i have created 5 functions to do 5 tasks now need to make sure that one function need to handle all these things are return 5 results.
+
+// AI given sollution
+
+const analyzeWorkWeek = function (weeklyhrs) {
+  // Validate input: Ensure the input is an array of length 7
+  if (!Array.isArray(weeklyhrs) || weeklyhrs.length !== 7) {
+    return {
+      error: 'Invalid input: Please provide an array of exactly 7 numbers.',
+    };
   }
-  return totalhours;
+
+  const totalHours = weeklyhrs.reduce((sum, hours) => sum + hours, 0);
+  const mostWorkedDay = Math.max(...weeklyhrs);
+  const daysWorked = weeklyhrs.filter((hours) => hours > 0).length;
+  const averageDailyHours = totalHours / weeklyhrs.length;
+  const isFullTime = totalHours >= 35;
+
+  return {
+    totalHours,
+    averageDailyHours,
+    mostWorkedDay,
+    daysWorked,
+    isFullTime,
+  };
 };
 
-//day with most hrs worked
-const mostWorkedDay = function (weeklyhrs) {
-  let mosthrsday = weeklyhrs[0];
-  for (let i = 0; i < weeklyhrs.length; i++) {
-    if (mosthrsday < weeklyhrs[i]) {
-      mosthrsday = weeklyhrs[i];
-    }
-  }
-  return mosthrsday;
-};
+const weeklyhrs = [7.5, 8, 6.5, 0, 8.5, 4, 0]; // Example input
 
-// Number of days worked
-const numberOfDaysWorked = function (weeklyhrs) {
-  let count = 0;
-  for (let i = 0; i < weeklyhrs.length; i++) {
-    if (weeklyhrs[i] > 0) {
-      count++;
-    }
-  }
-  return count;
-};
+const results = analyzeWorkWeek(weeklyhrs);
 
-//Week was full-time (35>=)
-let fullTime = function (weekworkedhrs) {
-  const Totalhours = totlhrs(weekworkedhrs);
-  return Totalhours >= 35
-    ? 'Week was Full Time'
-    : 'This week Not Reached 35hrs (FUll Time)';
-};
-
-const weeklyhrs = [7.5, 8, 6.5, 0, 8.5, 4, 0];
-
-console.log(`Total hours worked : ${totlhrs(weeklyhrs)}`);
-console.log(
-  `Average daily hours : ${Math.round(totlhrs(weeklyhrs) / weeklyhrs.length)}`
-);
-
-console.log(`Day with most hrs worked : ${mostWorkedDay(weeklyhrs)}`);
-
-console.log(`Number of days worked : ${numberOfDaysWorked(weeklyhrs)}`);
-
-console.log(fullTime(weeklyhrs));
+// Handle the response
+if (results.error) {
+  console.log(results.error);
+} else {
+  console.log(`Total hours worked: ${results.totalHours}`);
+  console.log(`Average daily hours: ${results.averageDailyHours.toFixed(2)}`);
+  console.log(`Day with most hours worked: ${results.mostWorkedDay}`);
+  console.log(`Number of days worked: ${results.daysWorked}`);
+  console.log(
+    results.isFullTime
+      ? 'Week was Full Time'
+      : 'This week did not reach 35 hours (Full Time)'
+  );
+}
