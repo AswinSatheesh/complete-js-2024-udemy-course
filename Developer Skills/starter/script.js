@@ -71,15 +71,17 @@
 // TEST DATA 1 : [17,21,23]
 // TEST DATA 2 : [12,5,-5,0,4]
 
-const printForecast = function (arr) {
-  let finalOutput = ' ';
-  let lastItem = ' ...';
-  for (let i = 0; i < arr.length; i++) {
-    finalOutput += `... ${arr[i]}^C in ${i + 1} days `;
-    // console.log();
-  }
-  console.log(finalOutput + lastItem);
-  console.log(finalOutput.trim()); //REMOVES UNWANTED SPACE FROM THE BEGINNING
-};
+// const printForecast = function (arr) {
+//   let finalOutput = ' ';
+//   let lastItem = ' ...';
+//   for (let i = 0; i < arr.length; i++) {
+//     finalOutput += `... ${arr[i]}^C in ${i + 1} days `;
+//     // console.log();
+//   }
+//   console.log(finalOutput + lastItem);
+//   console.log(finalOutput.trim()); //REMOVES UNWANTED SPACE FROM THE BEGINNING
+// };
 
-printForecast([17, 21, 23]); //now each line output coming need to print it in a single line
+// printForecast([17, 21, 23]); //now each line output coming need to print it in a single line
+
+//The Rise of AI Tools
