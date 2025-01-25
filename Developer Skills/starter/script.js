@@ -96,3 +96,54 @@
 // 5. whether the week was full-time(worked 35 hours or more)
 
 // Test data : [7.5,8,6.5,0,8.5,4,0]
+
+const totlhrs = function (weeklyhrs) {
+  let totalhours = 0;
+  for (let i = 0; i < weeklyhrs.length; i++) {
+    totalhours += weeklyhrs[i];
+  }
+  return totalhours;
+};
+
+//day with most hrs worked
+const mostWorkedDay = function (weeklyhrs) {
+  let mosthrsday = weeklyhrs[0];
+  for (let i = 0; i < weeklyhrs.length; i++) {
+    if (mosthrsday < weeklyhrs[i]) {
+      mosthrsday = weeklyhrs[i];
+    }
+  }
+  return mosthrsday;
+};
+
+// Number of days worked
+const numberOfDaysWorked = function (weeklyhrs) {
+  let count = 0;
+  for (let i = 0; i < weeklyhrs.length; i++) {
+    if (weeklyhrs[i] > 0) {
+      count++;
+    }
+  }
+  return count;
+};
+
+//Week was full-time (35>=)
+let fullTime = function (weekworkedhrs) {
+  const Totalhours = totlhrs(weekworkedhrs);
+  return Totalhours >= 35
+    ? 'Week was Full Time'
+    : 'This week Not Reached 35hrs (FUll Time)';
+};
+
+const weeklyhrs = [7.5, 8, 6.5, 0, 8.5, 4, 0];
+
+console.log(`Total hours worked : ${totlhrs(weeklyhrs)}`);
+console.log(
+  `Average daily hours : ${Math.round(totlhrs(weeklyhrs) / weeklyhrs.length)}`
+);
+
+console.log(`Day with most hrs worked : ${mostWorkedDay(weeklyhrs)}`);
+
+console.log(`Number of days worked : ${numberOfDaysWorked(weeklyhrs)}`);
+
+console.log(fullTime(weeklyhrs));
