@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(202, 224, 158);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding: 50px;
+}
+
+h4 {
+  color: rgb(7, 44, 32);
+  margin-bottom: 20px;
+}
+
+.firstone {
+  background-color: rgb(213, 236, 204);
+}
+
+#your-name {
+  margin-top: 20px;
+  padding: 10px;
+  margin-left: 5px;
+  border: 5px solid;
+}
+
+p {
+  text-align: center;
+}
+
+#aswin-repo {
+  text-align: center;
+  margin-top: 10px;
+}
+
+input,
+button {
+  padding: 10px;
+}
+
+#your-name h2 {
+  color: rgb(41, 134, 216);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+input {
+  margin-top: 5px;
+}
+#aswin-image {
+  width: 300px;
+}
