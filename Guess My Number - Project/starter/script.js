@@ -59,17 +59,17 @@ document.querySelector('.check').addEventListener('click', function () {
 
 document.querySelector('.again').addEventListener('click', function () {
   console.log('Button clicked!!');
-  // location.reload();  //Solution 1 Page Reload and all values clear
+  location.reload(); //Solution 1 Page Reload and all values clear
 
-  //Solution 2 - select each field and set back to initial value
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  // //Solution 2 - select each field and set back to initial value
+  // secretNumber = Math.trunc(Math.random() * 20) + 1;
+  // // document.querySelector('.number').textContent = '?';
+  // document.querySelector('.guess').value = '';
   // document.querySelector('.number').textContent = '?';
-  document.querySelector('.guess').value = '';
-  document.querySelector('.number').textContent = '?';
-  // document.querySelector('.number').placeholder = '?';
+  // // document.querySelector('.number').placeholder = '?';
 
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.message').textContent = 'Start guessing...';
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
+  // document.querySelector('.score').textContent = 20;
+  // document.querySelector('.message').textContent = 'Start guessing...';
+  // document.querySelector('body').style.backgroundColor = '#222';
+  // document.querySelector('.number').style.width = '15rem';
 });
