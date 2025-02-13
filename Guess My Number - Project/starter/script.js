@@ -35,7 +35,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('body').style.backgroundColor = '#60b347';
       document.querySelector('.number').style.width = '30rem';
 
-      if (score > highScore) {
+      if (score > highScore) {//highscre code implemented
         highScore = score;
         document.querySelector('.highscore').textContent = highScore;
       }
@@ -80,5 +80,3 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 });
-
-//Implementing HighScore Feature
