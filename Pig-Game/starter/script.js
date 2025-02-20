@@ -55,4 +55,10 @@ btnRoll.addEventListener('click', function () {
     playerEl0.classList.toggle('player--active');
     playerEl1.classList.toggle('player--active');
   }
+
+  //Holding the current score logic need to implement
+  const player0HoldtScore = document.getElementById('score--0');
+  const player1HoldtScore = document.getElementById('score--1');
+  console.log(player0HoldtScore.textContent);
+  console.log(player1HoldtScore.textContent);
 });
