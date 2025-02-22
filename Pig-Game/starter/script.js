@@ -20,27 +20,10 @@ diceEle.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
-//Dice Roll Logic while click button
+let playing = true;
 
-btnRoll.addEventListener('click', function () {
-  //   console.log('Button Roll Clicked');
-  //   1. generate a random roll
-  const randomRoll = Math.trunc(Math.random() * 6) + 1;
-  console.log(randomRoll);
-
-  //   2 Display the dice
-  diceEle.classList.remove('hidden');
-  diceEle.src = `dice-${randomRoll}.png`;
-
-  //   3 add the current roll number the current scrore
-
-  if (randomRoll != 1) {
-    currentScore += randomRoll;
-    // current0Ele.textContent = currentScore; //This one always sets the first element scroe //dynamic value set
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore;
-  } else {
-    //check the rolled =1, then switch the player
+const switchPlayer = function () {
+  if (playing) {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
@@ -55,10 +38,56 @@ btnRoll.addEventListener('click', function () {
     playerEl0.classList.toggle('player--active');
     playerEl1.classList.toggle('player--active');
   }
+};
 
-  //Holding the current score logic need to implement
-  const player0HoldtScore = document.getElementById('score--0');
-  const player1HoldtScore = document.getElementById('score--1');
-  console.log(player0HoldtScore.textContent);
-  console.log(player1HoldtScore.textContent);
+//Dice Roll Logic while click button
+
+btnRoll.addEventListener('click', function () {
+  if (playing) {
+    //   console.log('Button Roll Clicked');
+    //   1. generate a random roll
+    const randomRoll = Math.trunc(Math.random() * 6) + 1;
+    console.log(randomRoll);
+
+    //   2 Display the dice
+    diceEle.classList.remove('hidden');
+    diceEle.src = `dice-${randomRoll}.png`;
+
+    //   3 add the current roll number the current scrore
+
+    if (randomRoll != 1) {
+      currentScore += randomRoll;
+      // current0Ele.textContent = currentScore; //This one always sets the first element scroe //dynamic value set
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
+    } else {
+      //check the rolled =1, then switch the player
+      switchPlayer();
+    }
+  }
+});
+
+//Holding the current score logic need to implement
+btnHold.addEventListener('click', function () {
+  if (playing) {
+    // 1.Add Current score to the activePlayer's score
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+    //2. check if player's score>=100
+    if (scores[activePlayer] >= 20) {
+      playing = false;
+      diceEle.classList.add('hidden');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      //Finish the game
+    } else {
+      //switch the player
+      switchPlayer();
+    }
+  }
 });
