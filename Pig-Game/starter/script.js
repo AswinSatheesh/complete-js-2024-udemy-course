@@ -12,15 +12,29 @@ const diceEle = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnNew = document.querySelector('.btn--new');
 const btnHold = document.querySelector('.btn--hold');
-//Starting condition
-score0Ele.textContent = 0;
-score1Ele.textContent = 0;
-diceEle.classList.add('hidden');
 
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-let playing = true;
+let scores, currentScore, activePlayer, playing;
+let init = function () {
+  //Starting condition
+
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+
+  score0Ele.textContent = 0;
+  score1Ele.textContent = 0;
+  current0Ele.textContent = 0;
+  current1Ele.textContent = 0;
+
+  diceEle.classList.add('hidden');
+  playerEl0.classList.remove('player--winner');
+  playerEl1.classList.remove('player--winner');
+  playerEl0.classList.add('player--active');
+  playerEl1.classList.remove('player--active');
+};
+
+init();
 
 const switchPlayer = function () {
   if (playing) {
@@ -91,3 +105,28 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+//New Game Reset Logic
+
+// btnNew.addEventListener('click', function () {
+//   // console.log('Reset Functionality');
+
+//   diceEle.classList.add('hidden');
+//   currentScore = 0;
+//   // document.getElementById(`score--${activePlayer}`).textContent = currentScore;
+//   document
+//     .querySelector(`.player--${activePlayer}`)
+//     .classList.remove('player--winner');
+//   document
+//     .querySelector(`.player--${activePlayer}`)
+//     .classList.add('player--active');
+
+//   document.getElementById(`current--${activePlayer}`).textContent = 0;
+//   currentScore = 0;
+
+//   scores = [0, 0];
+//   activePlayer = 0;
+//   playing = true;
+// });
+
+btnNew.addEventListener('click', init);
