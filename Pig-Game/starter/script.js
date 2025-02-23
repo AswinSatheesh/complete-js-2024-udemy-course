@@ -1,5 +1,8 @@
 'use strict';
 
+//Game deployed in the NetlifyApp link is providing below :
+// https://spiffy-pasca-5f0f7d.netlify.app/
+
 //Selecting both score dom elements
 const playerEl0 = document.querySelector('.player--0');
 const playerEl1 = document.querySelector('.player--1');
