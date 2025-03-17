@@ -162,13 +162,61 @@ const aswinReg = {
 
 //arguments keyword
 
-const addExpr = function (a, b) {
-  console.log(arguments);
+// const addExpr = function (a, b) {
+//   console.log(arguments);
 
-  return a + b;
+//   return a + b;
+// };
+
+// addExpr(5, 5);
+// addExpr(10, 12, 28, 20);
+
+// var addArrow = (a, b) => a + b;
+
+//Object reference - shallow vs deep copies
+
+// const Aswin = {
+//   firstName: 'Aswin',
+//   lastName: 'Satheesh',
+//   age: 23,
+// };
+
+// // const D/ DevAswin.age = 24;evAswin = Aswin;
+// /
+
+// function RoleUpdation(NameObj, age) {
+//   NameObj.age = age;
+//   return NameObj;
+// }
+
+// const DevAswin = RoleUpdation(Aswin, 24);
+
+// console.log('Before', Aswin.age); //both object age changed to 24
+// console.log('Before', DevAswin.age); //both object age changed to 24
+
+const Aswin = {
+  firstName: 'Aswin',
+  lastName: 'Satheesh',
+  age: 23,
+  gang: ['member1', 'member2'],
+  abc: {
+    id: 123,
+  },
 };
 
-addExpr(5, 5);
-addExpr(10, 12, 28, 20);
+//Shallow copy
+// const UpdatedProfile = { ...Aswin }; //Using seperator creating a copy of old object with and storing it in the heap.
+// UpdatedProfile.age = 25;
+// UpdatedProfile.abc.id = 23;
+// UpdatedProfile.gang.push('member3'); //updating only in reference array but updating in both array
+// UpdatedProfile.gang.push('member4'); //updating only in reference array but updating in both array
 
-var addArrow = (a, b) => a + b;
+// const UpdatedProfile = structuredClone(Aswin);  //vedha solution
+
+//Deep Copy/Clone
+
+const UpdatedProfile = structuredClone(Aswin);
+UpdatedProfile.gang.push('member3');
+UpdatedProfile.gang.push('member4');
+UpdatedProfile.gang.push('member5');
+console.log(Aswin, UpdatedProfile);
