@@ -61,21 +61,45 @@
 // 03/17/2025
 // console.log(this);
 
-const calcAge = function (year) {
-  //regural function
-  console.log(2025 - year);
-  console.log(this); //this will be undefined - if its not in strict mode then window object will log (global)
-};
+// const calcAge = function (year) {
+//   //regural function
+//   console.log(2025 - year);
+//   console.log(this); //this will be undefined - if its not in strict mode then window object will log (global)
+// };
 
-// calcAge(2001);
+// // calcAge(2001);
 
-const calcAgeArrow = year => {
-  console.log(2025 - year);
-  console.log(this); //this will be a window object,uses lexical this keyword
-};
+// const calcAgeArrow = year => {
+//   console.log(2025 - year);
+//   console.log(this); //this will be a window object,uses lexical this keyword
+// };
 
-// calcAgeArrow(2001);
+// // calcAgeArrow(2001);
 
+// const aswin = {
+//   name: 'Aswin',
+//   age: 23,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(50 - this.age);
+//   },
+// };
+
+// // aswin.calcAge();
+
+// const kannanobj = {
+//   age: '25',
+// };
+
+// // console.log(kannanobj);
+
+// kannanobj.calcAge = aswin.calcAge; //calcAge function is assigning to kannanobj object's calcAge key(creating and assigning )
+
+// kannanobj.calcAge();
+
+// regular functions vs arrow functions
+
+// var name = 'Kannan';
 const aswin = {
   name: 'Aswin',
   age: 23,
@@ -83,16 +107,68 @@ const aswin = {
     console.log(this);
     console.log(50 - this.age);
   },
+
+  greet: () => console.log(`Hey this is ${this.name}`),
 };
 
-// aswin.calcAge();
+// aswin.greet();
+// console.log(this.name);
 
-const kannanobj = {
-  age: '25',
+// sollution 1
+// const aswinReg = {
+//   name: 'Aswin',
+//   age: 23,
+//   calcAge: function () {
+//     // console.log(this);
+//     // console.log(50 - this.age);
+
+//     const self = this;
+//     const isMillenal = function () {
+//       console.log(self);
+
+//       console.log(self.age >= 25);
+//     };
+//     isMillenal();
+//   },
+
+//   greet: function () {
+//     console.log(`Hey this is ${this.name}`);
+//   },
+// };
+
+// aswinReg.calcAge();
+// // console.log(this.name);
+
+// Sollution 2
+const aswinReg = {
+  name: 'Aswin',
+  age: 23,
+  calcAge: function () {
+    const isMillenal = () => {
+      console.log(this);
+
+      console.log(this.age >= 25);
+    };
+    isMillenal();
+  },
+
+  greet: function () {
+    console.log(`Hey this is ${this.name}`);
+  },
 };
 
-// console.log(kannanobj);
+// aswinReg.calcAge();
+// console.log(this.name);
 
-kannanobj.calcAge = aswin.calcAge; //calcAge function is assigning to kannanobj object's calcAge key(creating and assigning )
+//arguments keyword
 
-kannanobj.calcAge();
+const addExpr = function (a, b) {
+  console.log(arguments);
+
+  return a + b;
+};
+
+addExpr(5, 5);
+addExpr(10, 12, 28, 20);
+
+var addArrow = (a, b) => a + b;
