@@ -40,20 +40,59 @@
 
 //Functions
 
-console.log(addTwo(5, 4));
-// console.log(TwoAdd(5, 5));
-// console.log(TwoAdd); //var TwoAdd itself is a undefined
-console.log(arr(5, 1));
+// console.log(addTwo(5, 4));
+// // console.log(TwoAdd(5, 5));
+// // console.log(TwoAdd); //var TwoAdd itself is a undefined
+// console.log(arr(5, 1));
 
-function addTwo(a, b) {
-  return a + b;
-}
+// function addTwo(a, b) {
+//   return a + b;
+// }
 
-var TwoAdd = function (a, b) {
-  //variable declared using var is hoisting and value will we undefined now we are trying to call function with undefined. //undefined(5,5)
-  return a + b;
+// var TwoAdd = function (a, b) {
+//   //variable declared using var is hoisting and value will we undefined now we are trying to call function with undefined. //undefined(5,5)
+//   return a + b;
+// };
+
+// const arr = (a, b) => {
+//   return a + b;
+// };
+
+// 03/17/2025
+// console.log(this);
+
+const calcAge = function (year) {
+  //regural function
+  console.log(2025 - year);
+  console.log(this); //this will be undefined - if its not in strict mode then window object will log (global)
 };
 
-const arr = (a, b) => {
-  return a + b;
+// calcAge(2001);
+
+const calcAgeArrow = year => {
+  console.log(2025 - year);
+  console.log(this); //this will be a window object,uses lexical this keyword
 };
+
+// calcAgeArrow(2001);
+
+const aswin = {
+  name: 'Aswin',
+  age: 23,
+  calcAge: function () {
+    console.log(this);
+    console.log(50 - this.age);
+  },
+};
+
+// aswin.calcAge();
+
+const kannanobj = {
+  age: '25',
+};
+
+// console.log(kannanobj);
+
+kannanobj.calcAge = aswin.calcAge; //calcAge function is assigning to kannanobj object's calcAge key(creating and assigning )
+
+kannanobj.calcAge();
