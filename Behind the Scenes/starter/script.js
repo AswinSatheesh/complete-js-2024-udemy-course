@@ -215,8 +215,13 @@ const Aswin = {
 
 //Deep Copy/Clone
 
-const UpdatedProfile = structuredClone(Aswin);
-UpdatedProfile.gang.push('member3');
-UpdatedProfile.gang.push('member4');
-UpdatedProfile.gang.push('member5');
-console.log(Aswin, UpdatedProfile);
+// const UpdatedProfile = structuredClone(Aswin);
+// UpdatedProfile.gang.push('member3');
+// UpdatedProfile.gang.push('member4');
+// UpdatedProfile.gang.push('member5');
+// console.log(Aswin, UpdatedProfile);
+
+const newobj = JSON.parse(JSON.stringify(Aswin)); //Deep copy
+console.log(newobj);
+const newDeepcopy = structuredClone(Aswin);
+console.log(newDeepcopy);
