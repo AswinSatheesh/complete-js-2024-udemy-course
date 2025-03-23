@@ -70,7 +70,22 @@ const restaurant = {
       close: 24,
     },
   },
+  order: function (starterIndex, mainMenuIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainMenuIndex]];
+  },
+  orderDelivery: function ({ time, address, mainIndex, startIndex }) {
+    console.log(
+      `Order Recieved. The ${this.starterMenu[startIndex]} and category ${this.categories[mainIndex]} will ship to this ${address} address. Within ${time}  we will deliver your order.`
+    );
+  },
 };
+
+restaurant.orderDelivery({
+  time: '10:10',
+  address: 'Chennai',
+  mainIndex: '2',
+  startIndex: '1',
+});
 
 const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
@@ -108,3 +123,8 @@ const obj = { a: 10, b: 11 };
 // console.log(obj);
 
 //Nested objects
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
