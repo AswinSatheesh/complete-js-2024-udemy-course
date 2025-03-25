@@ -78,6 +78,12 @@ const restaurant = {
       `Order Recieved. The ${this.starterMenu[startIndex]} and category ${this.categories[mainIndex]} will ship to this ${address} address. Within ${time}  we will deliver your order.`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delecious pasta with ${ing1},${ing2} and ${ing3}`
+    );
+  },
 };
 
 restaurant.orderDelivery({
@@ -124,7 +130,47 @@ const obj = { a: 10, b: 11 };
 
 //Nested objects
 
-const {
-  fri: { open, close },
-} = openingHours;
-console.log(open, close);
+// const {
+//   fri: { open, close },
+// } = openingHours;
+// console.log(open, close);
+
+const arr = [1, 2, 3, 4];
+// console.log(arr);
+
+// arr.unshift(6, 6);
+// console.log(arr);
+
+// const newArr = [6, 6, ...arr];
+// console.log(newArr);
+// console.log(...newArr); //using spread operator individually we will get array elements.
+
+// const newMenu = [...restaurant.mainMenu, 'Kappa', 'Pidi'];
+// console.log(newMenu);
+
+// const mergeTwoArray = [...newMenu, ...newArr];
+// console.log(mergeTwoArray);
+
+// const str = 'Aswin';
+// const letters = [...str, '', 's.'];
+// console.log(letters);
+
+//Functions that accepts multiple arguments
+
+// restaurant.orderPasta('powder', 'Sause', 'Chilli');
+
+//Real world Example
+// const ingredients = [
+//   prompt('lets make pasta!, ingredeint 1'),
+//   prompt('Ingredeint 2?'),
+//   prompt('Ingredeint 3?'),
+// ];
+
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+// objects
+
+const copyRestaurant = { foundIn: 2001, ...restaurant, founder: 'Aswin' };
+console.log(copyRestaurant);
