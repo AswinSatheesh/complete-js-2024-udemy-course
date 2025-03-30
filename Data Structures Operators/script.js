@@ -217,4 +217,21 @@ const add = function (...numbers) {
 const x = [10, 20, 30, 40];
 add(...x);
 
-console.log(restaurant.orderPizza('veg', 'capsicum', 'carrot', 'chilli'));
+// console.log(restaurant.orderPizza('veg', 'capsicum', 'carrot', 'chilli'));
+
+//------------------------------------ OR OPERATOR --------------------------------
+console.log('Aswin' || 1);
+console.log('' || 1);
+console.log(true || 0);
+console.log(undefined || null);
+
+restaurant.numGuest = 0;
+const guestCount = restaurant.numGuest ? restaurant.numGuest : 11;
+console.log(guestCount);
+
+const guestC = restaurant.numGuest || 1;
+console.log(guestC);
+
+//------------------------------------ AND OPERATOR --------------------------------
+
+console.log(0 && 'Asiwn');
