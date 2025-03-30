@@ -220,18 +220,65 @@ add(...x);
 // console.log(restaurant.orderPizza('veg', 'capsicum', 'carrot', 'chilli'));
 
 //------------------------------------ OR OPERATOR --------------------------------
-console.log('Aswin' || 1);
-console.log('' || 1);
-console.log(true || 0);
-console.log(undefined || null);
+// console.log('Aswin' || 1);
+// console.log('' || 1);
+// console.log(true || 0);
+// console.log(undefined || null);
 
-restaurant.numGuest = 0;
+// restaurant.numGuest = 0;
 const guestCount = restaurant.numGuest ? restaurant.numGuest : 11;
-console.log(guestCount);
+// console.log(guestCount);
 
 const guestC = restaurant.numGuest || 1;
-console.log(guestC);
+// console.log(guestC);
 
 //------------------------------------ AND OPERATOR --------------------------------
 
 console.log(0 && 'Asiwn');
+
+// ------------------------------------
+// restaurant.numGuest = 0;
+
+const newcheck = restaurant.numGuest || 10;
+console.log(newcheck);
+
+const nullopr = restaurant.numGuest ?? 10;
+console.log(nullopr); //now 0 is the result
+
+// --------------Logical assignment operator:
+const rest1 = {
+  noOfguest: 0,
+  name: 'Kumar',
+};
+
+const rest2 = {
+  owner: 'Ram',
+  name: 'Kumar',
+};
+
+// rest1.noOfguest ||= 10;
+
+// rest2.noOfguest ||= 10;
+
+// console.log(rest1);
+// console.log(rest2);
+
+// nullish assignment operator
+rest1.noOfguest ??= 10;
+rest2.noOfguest ??= 10;
+
+console.log(rest1);
+console.log(rest2);
+
+//AND Assignment Operator
+rest1.owner = rest1.owner && '<ANONYMOUS>';
+rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
