@@ -60,3 +60,15 @@ const game = {
 };
 
 // 1. Create one player array for each team (variables 'players1' and 'players2')
+
+const [player1, player2] = game.players;
+console.log(player1);
+console.log(player2);
+
+// 2. The first player in any player array is the goalkeeper and the others are field players.
+// For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the
+// remaining 10 field players
+
+const [gk, ...fieldPlayers] = player1;
+console.log(gk);
+console.log(fieldPlayers);
