@@ -62,13 +62,54 @@ const game = {
 // 1. Create one player array for each team (variables 'players1' and 'players2')
 
 const [player1, player2] = game.players;
-console.log(player1);
-console.log(player2);
+// console.log(player1);
+// console.log(player2);
 
 // 2. The first player in any player array is the goalkeeper and the others are field players.
 // For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the
 // remaining 10 field players
 
-const [gk, ...fieldPlayers] = player1;
-console.log(gk);
-console.log(fieldPlayers);
+// const [gk, ...fieldPlayers] = player1;
+// console.log(gk);
+// console.log(fieldPlayers);
+
+const [gk1, ...fieldPlayers1] = player1; //using rest syntax
+// console.log(gk1);
+// console.log(fieldPlayers1);
+
+const [gk2, ...fieldPlayers2] = player2;
+// console.log(gk2);
+// console.log(fieldPlayers2);
+
+const allPlayers = [...player1, ...player2]; //combining two arrays into single variable
+console.log(allPlayers);
+
+const FinalPlayers = [...player1, 'Thiago', 'Coutinho', 'Periscic'];
+console.log(FinalPlayers);
+
+// ----------------------------------- swap two variables usnig spread operator
+// let a = 1;
+// let b = 10;
+
+// [b, a] = [a, b];
+
+// console.log(a, b);
+
+// ---------------------Nested Destructuring
+
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+// console.log(team1, draw, team2);
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals scored`);
+};
+
+printGoals('Aswin', 'Gokul', 'Surya', 'Shinu');
+printGoals('Aswin', 'vedha');
+
+printGoals(...game.scored);
+
+team1 < team2 && console.log('Team 1 Likely to win');
+team1 > team2 && console.log('Team 2 Likely to win');
