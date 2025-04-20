@@ -49,6 +49,23 @@
 // console.log(e, r, t, y); //now undefined will come in place of y, instead of that we can set default value
 
 //Destructuring Objects
+
+const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const openingHours = {
+  [days[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [days[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [days[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -56,39 +73,26 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-  order: function (starterIndex, mainMenuIndex) {
+  order(starterIndex, mainMenuIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainMenuIndex]];
   },
-  orderDelivery: function ({ time, address, mainIndex, startIndex }) {
+  orderDelivery({ time, address, mainIndex, startIndex }) {
     console.log(
       `Order Recieved. The ${this.starterMenu[startIndex]} and category ${this.categories[mainIndex]} will ship to this ${address} address. Within ${time}  we will deliver your order.`
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delecious pasta with ${ing1},${ing2} and ${ing3}`
     );
   },
 
-  orderPizza: function (mainIngredeint, ...otherIngredeints) {
+  orderPizza(mainIngredeint, ...otherIngredeints) {
     console.log(mainIngredeint);
     console.log(otherIngredeints);
   },
+  openingHours,
 };
 
 restaurant.orderDelivery({
@@ -98,7 +102,7 @@ restaurant.orderDelivery({
   startIndex: '1',
 });
 
-const { name, openingHours, categories } = restaurant;
+// const { name, openingHours, categories } = restaurant;
 // console.log(name, openingHours, categories);
 
 //with new names as property =>
@@ -162,7 +166,7 @@ const arr = [1, 2, 3, 4];
 
 //Functions that accepts multiple arguments
 
-// restaurant.orderPasta('powder', 'Sause', 'Chilli');
+restaurant.orderPasta('powder', 'Sause', 'Chilli');
 
 //Real world Example
 // const ingredients = [
@@ -243,7 +247,7 @@ const newcheck = restaurant.numGuest || 10;
 console.log(newcheck);
 
 const nullopr = restaurant.numGuest ?? 10;
-console.log(nullopr); //now 0 is the result
+// console.log(nullopr); //now 0 is the result
 
 // --------------Logical assignment operator:
 const rest1 = {
@@ -267,18 +271,79 @@ const rest2 = {
 rest1.noOfguest ??= 10;
 rest2.noOfguest ??= 10;
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 //AND Assignment Operator
 rest1.owner = rest1.owner && '<ANONYMOUS>';
 rest2.owner = rest2.owner && '<ANONYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 
 rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<ANONYMOUS>';
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// console.log(menu);
+
+// for (const sample of menu) console.log(sample);
+
+const iterator = menu.entries();
+// console.log([...iterator]);
+
+// for (const [index, value] of iterator) console.log(index, value);
+
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }
+
+//optional chaining
+// console.log(restaurant.openingHours?.Thu?.open);
+
+const optionalDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+// for (const day of optionalDays) {
+//   // console.log(day);
+//   const open = restaurant?.openingHours?.[day]?.open ?? 'closed';
+//   console.log(`On ${day} we open at ${open}`);
+// }
+
+restaurant.orderPasta(1, 2);
+// console.log(restaurant.order?.(1, 2) ?? 'Method not implemented');
+
+const nameList = [
+  {
+    name: 'Aswin',
+    job: 'Software Engineer',
+  },
+];
+
+//PROPERTY NAMES
+
+// console.log(nameList[0]?.name ?? 'Key Not available');
+
+const properties = Object.keys(openingHours);
+let openStr = `We open at ${properties.length} days: `;
+
+for (const day of properties) {
+  //looping through all the keys
+  openStr += `${day}, `;
+}
+
+// console.log(openStr);
+
+//PROPERTY VALUES
+const values = Object.values(openingHours);
+// console.log(values);
+
+const objEntries = Object.entries(openingHours);
+
+// console.log(objEntries);
+
+for (const [key, { open, close }] of objEntries) {
+  console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
