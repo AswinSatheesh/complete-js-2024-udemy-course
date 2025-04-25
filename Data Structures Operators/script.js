@@ -344,6 +344,19 @@ const objEntries = Object.entries(openingHours);
 
 // console.log(objEntries);
 
-for (const [key, { open, close }] of objEntries) {
-  console.log(`On ${key}, we open at ${open} and close at ${close}`);
-}
+// for (const [key, { open, close }] of objEntries) {
+//   console.log(`On ${key}, we open at ${open} and close at ${close}`);
+// }
+
+// sets
+const orderSet = new Set(['one', 'five', 'one', 'two', 'five']);
+
+const numbercheck = new Set([1, 6, 8, 6, 1, 3]);
+
+console.log('Original: ', orderSet);
+console.log('Original: ', numbercheck);
+
+console.log(orderSet.add('seven'));
+
+// console.log(orderSet.delete('Seven'));
+console.log(orderSet.has('fives'));
