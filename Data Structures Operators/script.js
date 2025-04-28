@@ -77,20 +77,20 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainMenuIndex]];
   },
   orderDelivery({ time, address, mainIndex, startIndex }) {
-    console.log(
-      `Order Recieved. The ${this.starterMenu[startIndex]} and category ${this.categories[mainIndex]} will ship to this ${address} address. Within ${time}  we will deliver your order.`
-    );
+    // console.log(
+    //   `Order Recieved. The ${this.starterMenu[startIndex]} and category ${this.categories[mainIndex]} will ship to this ${address} address. Within ${time}  we will deliver your order.`
+    // );
   },
 
   orderPasta(ing1, ing2, ing3) {
-    console.log(
-      `Here is your delecious pasta with ${ing1},${ing2} and ${ing3}`
-    );
+    // console.log(
+    //   `Here is your delecious pasta with ${ing1},${ing2} and ${ing3}`
+    // );
   },
 
   orderPizza(mainIngredeint, ...otherIngredeints) {
-    console.log(mainIngredeint);
-    console.log(otherIngredeints);
+    // console.log(mainIngredeint);
+    // console.log(otherIngredeints);
   },
   openingHours,
 };
@@ -211,7 +211,7 @@ const add = function (...numbers) {
   for (let i = 0; i < numbers.length; i++) {
     sum += numbers[i];
   }
-  console.log(sum);
+  // console.log(sum);
 };
 
 // add(2, 1);
@@ -238,13 +238,13 @@ const guestC = restaurant.numGuest || 1;
 
 //------------------------------------ AND OPERATOR --------------------------------
 
-console.log(0 && 'Asiwn');
+// console.log(0 && 'Asiwn');
 
 // ------------------------------------
 // restaurant.numGuest = 0;
 
 const newcheck = restaurant.numGuest || 10;
-console.log(newcheck);
+// console.log(newcheck);
 
 const nullopr = restaurant.numGuest ?? 10;
 // console.log(nullopr); //now 0 is the result
@@ -353,10 +353,44 @@ const orderSet = new Set(['one', 'five', 'one', 'two', 'five']);
 
 const numbercheck = new Set([1, 6, 8, 6, 1, 3]);
 
-console.log('Original: ', orderSet);
-console.log('Original: ', numbercheck);
+// console.log('Original: ', orderSet);
+// console.log('Original: ', numbercheck);
 
-console.log(orderSet.add('seven'));
+// console.log(orderSet.add('seven'));
 
-// console.log(orderSet.delete('Seven'));
-console.log(orderSet.has('fives'));
+// // console.log(orderSet.delete('Seven'));
+// console.log(orderSet.has('fives'));
+
+///////////////////////////////////////
+// New Operations to Make Sets Useful!
+
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+// const newset = new Set([...italianFoods, ...mexicanFoods]);
+// console.log(newset);
+const commonFood = italianFoods.intersection(mexicanFoods);
+// console.log(commonFood);
+
+const futionMexicanCommon = mexicanFoods.union(italianFoods);
+// console.log(futionMexicanCommon);
+
+console.log(...[new Set([...mexicanFoods, ...italianFoods])]);
+
+const uniqueSet1 = mexicanFoods.difference(italianFoods);
+console.log(uniqueSet1);
